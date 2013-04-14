@@ -5,18 +5,18 @@ MAX_LIMIT = 4
 def calc(data):
     complete = False;
     cdata = copy.copy(data)
-
     for x in xrange(MAX_LIMIT):
         data[x] = data[x].replace("T", "X")
+        cdata[x] = cdata[x].replace("T", "O")
+    for x in xrange(MAX_LIMIT):
         if (data[x] == "XXXX"):
             return "X won"
-          
+        
         if (data[0][x] == 'X' and data[1][x] == 'X' \
                 and data[2][x] == 'X' and data[3][x] == 'X') :
             return "X won"
 
-        cdata[x] = cdata[x].replace("T", "O")
-        if (data[x] == "OOOO"):
+        if (cdata[x] == "OOOO"):
             return "O won"
         if (cdata[0][x] == 'O' and cdata[1][x] == 'O' and  \
                 cdata[2][x] == 'O' and cdata[3][x] == 'O'):
